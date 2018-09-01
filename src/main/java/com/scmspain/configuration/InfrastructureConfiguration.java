@@ -9,8 +9,11 @@ import org.springframework.jmx.export.MBeanExporter;
 
 @Configuration
 public class InfrastructureConfiguration {
-    @Bean @ExportMetricWriter
+
+    @Bean
+    @ExportMetricWriter
     public MetricWriter getMetricWriter(MBeanExporter exporter) {
         return new JmxMetricWriter(exporter);
     }
+
 }

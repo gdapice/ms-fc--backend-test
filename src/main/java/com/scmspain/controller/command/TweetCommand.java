@@ -1,6 +1,7 @@
 package com.scmspain.controller.command;
 
-public class PublishTweetCommand {
+public class TweetCommand {
+
     private String publisher;
     private String tweet;
 
