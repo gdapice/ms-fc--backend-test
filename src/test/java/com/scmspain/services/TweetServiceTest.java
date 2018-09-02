@@ -63,6 +63,7 @@ public class TweetServiceTest {
     @Test
     public void shouldInsertANewTweetWithLinks() {
         tweetService.publishTweet("Pirate", "http://www.worldofmi.com/ LeChuck? He's the guy that went to the Governor's for dinner and never wanted to leave. He fell for her in a big way, but she told him to..");
+        verify(entityManager).persist(any(Tweet.class));
     }
 
     @Test
