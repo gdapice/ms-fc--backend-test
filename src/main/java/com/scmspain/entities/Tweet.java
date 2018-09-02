@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import java.util.Date;
+import java.util.Objects;
 
 @Entity
 public class Tweet {
@@ -99,5 +100,37 @@ public class Tweet {
 
     public void setDiscardedDate(Date discardedDate) {
         this.discardedDate = discardedDate;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Tweet tweet1 = (Tweet) o;
+        return Objects.equals(id, tweet1.id) &&
+                Objects.equals(publisher, tweet1.publisher) &&
+                Objects.equals(tweet, tweet1.tweet) &&
+                Objects.equals(pre2015MigrationStatus, tweet1.pre2015MigrationStatus) &&
+                Objects.equals(publicationDate, tweet1.publicationDate) &&
+                Objects.equals(discarded, tweet1.discarded) &&
+                Objects.equals(discardedDate, tweet1.discardedDate);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, publisher, tweet, pre2015MigrationStatus, publicationDate, discarded, discardedDate);
+    }
+
+    @Override
+    public String toString() {
+        return "Tweet{" +
+                "id=" + id +
+                ", publisher='" + publisher + '\'' +
+                ", tweet='" + tweet + '\'' +
+                ", pre2015MigrationStatus=" + pre2015MigrationStatus +
+                ", publicationDate=" + publicationDate +
+                ", discarded=" + discarded +
+                ", discardedDate=" + discardedDate +
+                '}';
     }
 }
